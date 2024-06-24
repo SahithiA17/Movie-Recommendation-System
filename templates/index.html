@@ -53,18 +53,18 @@
 <body>
     <div class="container">
         <h1 class="my-4">Movie Recommender System</h1>
-        
+
         <form method="POST" action="/">
             <div class="form-group">
-                <label for="movie">Type or select a movie from the dropdown:</label>
+                <label for="movie">Select a movie from the dropdown:</label>
                 <select name="movie" id="movie" class="form-control">
                     <!-- Iterate through the movie list and create options -->
                     {% for movie in movie_list %}
-                        <option value="{{ movie }}">{{ movie }}</option>
+                        <option value="{{ movie }}" {% if selected_movie == movie %} selected {% endif %}>{{ movie }}</option>
                     {% endfor %}
                 </select>
             </div>
-            
+
             <button type="submit" class="btn btn-primary">Show Recommendation</button>
         </form>
 
